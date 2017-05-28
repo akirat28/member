@@ -1,0 +1,29 @@
+services:
+    # Twig Extension
+    app.twig.util_extension:
+            class: AppBundle\Twig\UtilExtension
+            tags:
+                - { name: twig.extension }
+
+#    # Custom Event Exception Listener
+#    app.custom_exception_listener:
+#        class: AppBundle\EventListener\CustomExceptionListener
+#        tags:
+#            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+#        arguments: ["@templating","@logger", "@mailer","@service_container"]
+
+    # User Service
+#    app_user.service:
+#        class: AppBundle\Services\UserService
+#        arguments:
+#          - "@service_container"
+#          - "@security.context"
+#          - "@logger"
+
+
+    # FosUser Service
+    app_user.service:
+        class: AppBundle\Services\UserService
+        arguments:
+          - "@doctrine.orm.entity_manager"
+          - "@service_container"

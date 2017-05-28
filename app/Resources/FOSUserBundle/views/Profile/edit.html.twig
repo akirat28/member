@@ -1,0 +1,26 @@
+{# テンプレート継承 #}
+{% extends 'AppBundle::backend_base.html.twig' %}
+
+{# ページラベル #}
+{% block title %}ログイン{% endblock %}
+
+{# コンテンツヘッダー タイトルとパンくず #}
+{% block content_title %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            パスワードの変更
+            <small>change password</small>
+        </h1>
+    </section>
+{% endblock %}
+
+{# メインコンテンツ #}
+{% block content %}
+    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+    </div>
+    {{ form_end(form) }}
+{% endblock content %}

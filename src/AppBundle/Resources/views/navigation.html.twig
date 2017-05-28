@@ -1,0 +1,65 @@
+
+{# コントローラ名取得 #}
+{% if app.request.attributes.get('_template') %}
+    {% set controller_name = app.request.attributes.get('_template').template.get('controller') %}
+{% else %}
+    {% set controller_name = "" %}
+{% endif %}
+{#{{ dump(controller_name)}}#}
+<section class="sidebar">
+    <!-- search form
+    <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+    </form>
+    -->
+    <!-- sidebar menu  -->
+    <ul class="sidebar-menu">
+        <li class="header">メインナビゲーション</li>
+        <li{% if controller_name == 'Admin' %} class="active"{% endif %}>
+            <a href="{{ path('app_admin_index') }}">
+                <i class="active fa fa-dashboard"></i> <span>ダッシュボード</span>
+            </a>
+        </li>
+
+        {#<li class="treeview {% if controller_name == "Shop" %}active{% endif %}">#}
+            {#<a href="#">#}
+                {#<i class="fa fa-home"></i>#}
+                {#<span>店舗メニュー</span>#}
+                {#<span class="pull-right-container">#}
+              {#<i class="fa fa-angle-left pull-right"></i>#}
+            {#</span>#}
+            {#</a>#}
+            {#<ul class="treeview-menu">#}
+                {#<li><a href="{{ path('app_reservation_index') }}"><i class="fa fa-stack-overflow text-red"></i> 予約管理</a></li>#}
+                {#<li><a href="#}{#{ path('app_woms_index') }#}{#"><i class="fa fa-weixin text-yellow"></i> 口コミ返信</a></li>#}
+                {#<li {% if controller_name == "Shop" %} class="active"{% endif %}><a href="{{ path('app_shop_index') }}"><i class="fa fa-cogs text-aqua"></i> <span> 店舗編集</span></a></li>#}
+            {#</ul>#}
+        {#</li>#}
+        {#<li class="treeview {% if controller_name == "Agent" or controller_name == 'ShopImport'%}active{% endif %}">#}
+            {#<a href="#">#}
+                {#<i class="fa fa-institution "></i>#}
+                {#<span>管理メニュー</span>#}
+                {#<span class="pull-right-container">#}
+              {#<i class="fa fa-angle-left pull-right"></i>#}
+            {#</span>#}
+            {#</a>#}
+            {#<ul class="treeview-menu">#}
+                {#<li><a href="#}{#{ path('app_columns_index') }#}{#}"><i class="fa fa-file-text-o text-red"></i> コラム編集</a></li>#}
+                {#<li {% if controller_name == "Agent" %} class="active"{% endif %}><a href="{{ path('app_agent_index') }}"><i class="fa fa-cog text-aqua"></i> <span>代理店編集</span></a></li>#}
+                {#<li><a href="#}{#{ path('app_prioritypoint_index') }#}{#"><i class="fa fa-yelp text-red"></i> 掲載ポイント</a></li>#}
+                {#<li {% if controller_name == "ShopImport" %} class="active"{% endif %}><a href="{{ path('app_shopimport_index') }}"><i class="fa fa-copy text-green"></i> 入稿管理</a></li>#}
+            {#</ul>#}
+        {#</li>#}
+
+        {% if is_granted('ROLE_ADMIN') %}
+        <li class="header">サイト管理者</li>
+        <li {% if controller_name == "User" %} class="active"{% endif %}><a href="{{ path('app_user_index') }}"><i class="fa  fa-group text-red"></i> <span>ユーザー管理</span></a></li>
+        {% endif %}
+</ul>
+</section>

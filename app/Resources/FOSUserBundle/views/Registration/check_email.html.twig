@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin | Log in</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="{{ asset('bundles/app/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{{ asset('bundles/app/dist/css/AdminLTE.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/app/plugins/iCheck/square/blue.css') }}">
+    <link href="{{ asset('bundles/app/css/style.css') }}" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    <div class="login-logo">
+        <a href="{{ path("app_default_index") }}"><b>Member</b>Admin</a>
+    </div>
+    <!-- /.login-logo -->
+
+    <div class="register-box-body">
+        <p class="login-box-msg">新規ユーザー登録</p>
+
+        <p>{{ user.email }}宛にメールを送信しました。</p>
+        <p>メールの支持に従いユーザー登録を完了させてください。</p>
+        <hr>
+        <p>メールが届くまで数分かかる場合がございます。</p>
+
+        <a href="{{ path('fos_user_security_login') }}" class="text-center">メンバーの方はこちら</a>
+    </div>
+</div>
+<!-- /.login-box -->
+<script src="{{ asset('bundles/app/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+<script src="{{ asset('bundles/app/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('bundles/app/plugins/iCheck/icheck.min.js') }}"></script>
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+{# テンプレート継承 #}
+{% extends 'AppBundle::front_base.html.twig' %}
+
+{% block title %}{{ shopName }} ログイン{% endblock %}
+
+{% block main %}
+
+<form id="form" action="{{ path('login') }}"  method="POST" {{ form_enctype(form) }}>
+    <ul id="unit_tab">
+        <li class="current"><a href="{{ path('top', {'id':shopId,'member':"0"})  }}">会員の方</a></li>
+        <li><a href="{{ path('top', {'id':shopId,'member':"1"})  }}">はじめての方</a></li>
+    </ul>
+    <p class="item_read">
+        会員のお客様はこちらから<br>ログインしてください。
+    </p>
+    <dl class="unit_login">
+        <dt>{{ form_label(form.mailAddress) }}</dt>
+        <dd>{{ form_widget(form.mailAddress) }}{{ form_errors(form.mailAddress) }}</dd>
+    </dl>
+    <dl class="unit_login">
+        <dt>{{ form_label(form.password) }}</dt>
+        <dd>{{ form_widget(form.password) }}{{ form_errors(form.password) }}</dd>
+    </dl>
+    <p class="unit_button-set">
+        <input class="btn_decide" type="submit" name="submit" value="ログインする"/>
+    </p>
+    <input type="hidden" name="shopId" value="{{ shopId }}">
+    {{ form_widget(form._token) }}
+
+</form>
+{% endblock %}

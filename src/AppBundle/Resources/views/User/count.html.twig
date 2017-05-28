@@ -1,0 +1,17 @@
+
+{% if is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN') %}
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-yellow">
+        <div class="inner">
+            <h3>{{ count }}<sup style="font-size: 20px">人</sup></h3>
+
+            <p>登録ユーザー数</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-person-add"></i>
+        </div>
+        <a href="{{ path('app_user_index') }}" class="small-box-footer">詳　細 <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+{% endif %}

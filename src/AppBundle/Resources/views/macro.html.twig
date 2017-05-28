@@ -1,0 +1,5 @@
+{# ---- RESTful ルーティングで利用 --------------------------------------#}
+{% macro method(type) %}
+    {% set meth = type|default("")|upper %}
+    <input type="hidden" name="_method" id="_method" value="{{ meth }}" />
+{% endmacro %}

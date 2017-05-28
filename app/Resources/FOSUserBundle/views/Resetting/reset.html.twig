@@ -1,0 +1,51 @@
+{# テンプレート継承 #}
+{% extends 'AppBundle::backend_base.html.twig' %}
+
+{# ページラベル #}
+{% block title %}ログイン{% endblock %}
+
+{# コンテンツヘッダー タイトルとパンくず #}
+{% block content_title %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            パスワードの変更
+            <small>change password</small>
+        </h1>
+    </section>
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
+{# メインコンテンツ #}
+{% block content %}
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info box-header with-border">
+                <form name="fos_user_resetting_form" method="post" action="{{ path('fos_user_resetting_reset',{'token':token}) }}" class="fos_user_resetting_reset">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <th class="col-xs-3 col-ms-3 col-md-3 col-lg-3">新しいパスワード</th>
+                                <td class="col-xs-9 col-ms-9 col-md-9 col-lg-9">
+                                    <input type="password" id="fos_user_resetting_form_plainPassword_first" name="fos_user_resetting_form[plainPassword][first]" required="required" value="" rel="theme">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>確認</th>
+                                <td>
+                                    <input type="password" id="fos_user_resetting_form_plainPassword_second" name="fos_user_resetting_form[plainPassword][second]" required="required" value="" rel="theme">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {{ form_widget(form._token) }}
+                    <input type="submit" class="btn btn-danger" value="パスワードの変更">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

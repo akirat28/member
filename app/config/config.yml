@@ -1,0 +1,128 @@
+services:
+    session.memcached:
+        class: Memcached
+        arguments:
+            persistent_id: '%session_memcached_prefix%'
+        calls:
+            - [ addServer, [ '%session_memcached_host%', '%session_memcached_port%' ]]
+
+    session.handler.memcached:
+        class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\MemcachedSessionHandler
+        arguments: [@session.memcached, { prefix: '%session_memcached_prefix%', expiretime: '%session_memcached_expire%' }]
+
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+
+parameters:
+    locale: ja
+
+framework:
+    #esi: ~
+    translator: { fallbacks: ['%locale%'] }
+    secret: '%secret%'
+    router:
+        resource: '%kernel.root_dir%/config/routing.yml'
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    #serializer: { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    trusted_proxies: ~
+    session:
+        handler_id: session.handler.memcached
+    fragments: ~
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    globals:
+        site_name: '%site_name%'
+    form:
+        resources:
+            - 'AppBundle::form.html.twig'
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        default_connection:       default
+        connections:
+            default:
+                driver:   "%database_driver%"
+                host:     "%database_master_host%"
+                port:     "%database_master_port%"
+                dbname:   "%database_master_name%"
+                user:     "%database_master_user%"
+                password: "%database_master_password%"
+                charset:  utf8
+                slaves:
+                    slave1:
+                        host:     "%database_slave_host%"
+                        port:     "%database_slave_port%"
+                        dbname:   "%database_slave_name%"
+                        user:     "%database_slave_user%"
+                        password: "%database_slave_password%"
+                        charset:  utf8
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        entity_managers:
+            default:
+                mappings:
+                    AppBundle: ~
+                naming_strategy: doctrine.orm.naming_strategy.underscore
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: '%mailer_transport%'
+    host: '%mailer_host%'
+    username: '%mailer_user%'
+    password: '%mailer_password%'
+    spool: { type: memory }
+
+jms_di_extra:
+    locations:
+        all_bundles: false
+        bundles:
+            - AppBundle
+        directories: ["%kernel.root_dir%/../src"]
+
+knp_paginator:
+    page_range: 10 # default page range used in pagination control
+    default_options:
+        page_name: page # page query parameter name
+        sort_field_name: sort # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+#        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig # sliding pagination controls template
+#        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+        #Bootstrap 対応版
+        pagination: AppBundle:knp:Paginator.html.twig
+        sortable: AppBundle:knp:sortable_link.html.twig
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: "%mailer_user%"
+        sender_name: "%mailer_user%"
+    resetting:
+        email:
+            from_email:
+                address: resetting@example.com
+                sender_name: Resetting
+    registration:
+          confirmation:
+              enabled: true
+              from_email:
+                   address: registration@example.com
+                   sender_name: Registration

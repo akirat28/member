@@ -1,0 +1,33 @@
+{# テンプレート継承 #}
+{% extends 'AppBundle::backend_base.html.twig' %}
+
+{# ページラベル #}
+{% block title %}ログイン{% endblock %}
+
+{# コンテンツヘッダー タイトルとパンくず #}
+{% block content_title %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            パスワードの変更
+            <small>change password</small>
+        </h1>
+    </section>
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
+{# メインコンテンツ #}
+{% block content %}
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info box-header with-border">
+                メールを送信しました。メールに記載された確認 URL にアクセスして、アカウントを有効化してください。<br >
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

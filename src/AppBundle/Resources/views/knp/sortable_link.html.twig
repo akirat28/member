@@ -1,0 +1,8 @@
+{% if options.class == "asc"%}
+    <span class="sort_asc"><i class="fa fa-sort-amount-asc text-red"></i></span>
+{% elseif options.class == "desc"%}
+    <span class="sort_desc"><i class="fa fa-sort-amount-desc text-red"></i></span>
+{% endif %}
+<a {% for attr, value in options %} {{ attr }}="{{ value }}"{% endfor %}>
+{{ title }}
+</a>

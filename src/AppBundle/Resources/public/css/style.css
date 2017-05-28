@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+
+.navbar{
+    background-color: #394278;
+}
+
+.navbar-default .navbar-brand{
+    color: white;
+}
+.navbar-default:hover .navbar-brand:hover{
+    color: gray;
+}
+
+#busy {
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    background-color: black;
+    opacity: 0.5;
+    visibility: hidden;
+}
+
+#loading {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-50px 0 0 -50px;
+}
+
+
+#UploadType_csvfile{
+    font-size: 0.8rem;
+}
+#upload input[type="file"] {
+    display:none;
+}
+
+#upload label {
+    margin: 10px;
+    padding: 6px 20px;
+    border:1px solid #296BA6; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px; color: #FFFFFF;
+    background-color: #2E79B9;
+}
+
+#upload label:hover {
+    margin: 10px;
+    padding: 6px 20px;
+    border:1px solid #296BA6;
+    background-color: #245F91;
+}
+
+/* 警告メッセージ */
+#caution_message {
+    font-size: 1.8rem;
+    padding: 10px 0 0 0;
+    width: 90%;
+    margin: 0 auto 0 auto;
+    border: double 3px #F00;
+    color: #F00;
+    text-align: center;
+    font-weight: bold;
+}
+/* メッセージ */
+#message {
+    font-size: 1.8rem;
+    padding: 10px 0 0 0;
+    width: 90%;
+    margin: 0 auto 0 auto;
+    border: solid 2px #00F;
+    color: #00F;
+    text-align: center;
+    font-weight: normal;
+}
+
+.errmsg{
+    color: red;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.error_message_list{
+    color: red;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+
+/* デザイン調整　ユーザー管理のチェックボックスの間隔を広げた */
+div#UserType_roles input + label {
+    display: inline-block;
+    margin: 0 15px 0 0;
+}
+
+/* デザイン調整　ユーザー管理のチェックボックスの間隔を広げた */
+div#UserNewType_roles input + label {
+    display: inline-block;
+    margin: 0 15px 0 0;
+}
+
+/* デザイン調整　店舗編集のラジオボランの間隔を広げた */
+div#ShopAdminType_publishStatus input + label {
+    display: inline-block;
+    margin: 0 15px 0 0;
+}
+
+.dropzone { border: 2px dashed #0087F7; border-radius: 5px; background: white; }
+.dropzone .dz-message { font-weight: 400; }
+.dropzone .dz-message .note { font-size: 0.8em; font-weight: 200; display: block; margin-top: 1.4rem; }

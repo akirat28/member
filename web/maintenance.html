@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=2.0">
+    <meta name="description" content="WEBで簡単！予約受付を承ります。">
+    <meta name="keywords" content="web,予約">
+    <meta name="format-detection" content="telephone=no">
+    <title>携帯リペアー</title>
+    <style>
+        html {
+            font-size: 62.5%;
+        }
+
+        * html .smallFont {
+            font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+        }
+
+        *:first-child + html .smallFont {
+            font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+        }
+
+        * html ul li dl, * html ol li dl {
+            display: inline;
+        }
+
+        *:first-child + html ul li dl, *:first-child + html ol li dl {
+            display: inline;
+        }
+
+        a:hover {
+            opacity: 0.5;
+        }
+
+        body {
+            margin: 0;
+            background-color: #ffffff;
+            -webkit-text-size-adjust: 100%;
+            font-size: 2.0rem;
+            font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+            color: #333333;
+            line-height: 140%;
+        }
+
+        div#header h1, div#content, div#footer {
+            width: 750px;
+            margin: 0 auto;
+        }
+
+        @media screen and (max-width: 460px) {
+            div#header, div#header h1, div#content, div#footer {
+                width: 100%;
+                margin: 0;
+                padding: 0 2%;
+            }
+        }
+
+        /* header指定 */
+        div#header {
+            width: 100%;
+            margin: 0 0 30px 0;
+            padding: 15px 0;
+            border-top: solid 1px #cccccc;
+            border-bottom: solid 3px #cccccc;
+        }
+
+        div#header h1 {
+            height: 50px;
+            padding: 15px 0 0 0px;
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 50px 45px;
+            font-size: 2.8rem;
+            font-weight: normal;
+        }
+
+        @media screen and (max-width: 460px) {
+            div#header {
+                header: auto;
+                padding: 7px;
+            }
+
+            div#header h1 {
+                padding: 0px 0 7px 60px;
+                font-size: 1.8rem;
+                line-height: 140%;
+            }
+
+            div#header h1 span {
+                display: block;
+            }
+        }
+
+        /* content指定 */
+        div#content {
+            margin: 45px auto;
+            padding: 25px;
+            border: solid 1px #91c226;
+            font-weight: bold;
+        }
+
+        div#content p {
+            text-align: center;
+        }
+
+        /* footer指定 */
+        div#footer {
+            width: 100%;
+            padding: 15px 0;
+            border-top: solid 1px #cccccc;
+        }
+
+        div#footer p {
+            width: 100%;
+            font-size: 1.4rem;
+            text-align: center;
+            line-height: 140%;
+            color: #999999;
+        }
+
+        @media screen and (max-width: 460px) {
+            div#footer p {
+                padding: 0 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- STRT HEADER -->
+<div id="header">
+    <h1><span>リペアー</span></h1>
+</div>
+<!-- END HEADER -->
+<!-- STRT CONTENT -->
+<div id="content">
+    <p>
+        ご利用ありがとうございます。<br>
+        只今メンテナンス中のため、<br>
+        しばらくの間ご利用いただけません。
+    </p>
+</div>
+<!-- END CONTENT -->
+<!-- STRT FOOTER -->
+<div id="footer">
+    <p>
+        Powerd by ・・・・・・・
+    </p>
+</div>
+<!-- END FOOTER -->
+</body>
+</html>

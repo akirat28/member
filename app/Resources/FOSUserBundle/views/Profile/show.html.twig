@@ -1,0 +1,50 @@
+{# テンプレート継承 #}
+{% extends 'AppBundle::backend_base.html.twig' %}
+
+{# ページラベル #}
+{% block title %}ログイン{% endblock %}
+
+{# コンテンツヘッダー タイトルとパンくず #}
+{% block content_title %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            パスワードの変更
+            <small>change password</small>
+        </h1>
+    </section>
+{% endblock %}
+
+{# メインコンテンツ #}
+{% block content %}
+<section class="content">
+    <div class="box-body">
+        <div class="col-md-12">
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i>メッセージ</h4>
+                パスワード変更が完了しました
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info box-header with-border">
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <th class="col-xs-3 col-ms-3 col-md-2 col-lg-2">ユーザー名</th>
+                        <td class="col-xs-9 col-ms-9 col-md-10 col-lg-10">{{ user.username }}</td>
+                    </tr>
+                    <tr>
+                        <th>メールアドレス</th>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

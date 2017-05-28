@@ -1,0 +1,16 @@
+
+{% block subject %}
+{{ user.username }}様　パスワードのリセットのご案内
+{% endblock %}
+
+{% block body_text %}
+
+    {{ user.username }} 様
+
+    パスワードをリセットするには、次のリセット URL へアクセスしてください {{ confirmationUrl }}
+
+
+{% endblock %}
+
+{% block body_html %}
+{% endblock %}
