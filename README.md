@@ -18,7 +18,7 @@ $ sudo setfacl -R -m u:www-data:rwx -m u:gridy:rwx app/cache app/logs
 $ sudo setfacl -dR -m u:www-data:rwx -m u:gridy:rwx app/cache app/logs  
 
 ## Composerからパッケージのインストール
-$ cd [repairインストールディレクトリ]  
+$ cd member  
 $ composer install  
 
 ## マイグレーション実行
