@@ -24,9 +24,9 @@ class Prefecture
     /**
      * @var string
      *
-     * @ORM\Column(name="pref_name", type="string", length=128, nullable=true)
+     * @ORM\Column(name="name", type="string", length=128, nullable=true)
      */
-    private $prefName;
+    private $name;
 
     /**
      * @var \Area
@@ -53,13 +53,13 @@ class Prefecture
     /**
      * Set prefName
      *
-     * @param string $prefName
+     * @param string $name
      *
      * @return Prefecture
      */
-    public function setPrefName($prefName)
+    public function setName($name)
     {
-        $this->prefName = $prefName;
+        $this->name = $name;
 
         return $this;
     }
@@ -69,9 +69,9 @@ class Prefecture
      *
      * @return string
      */
-    public function getPrefName()
+    public function getName()
     {
-        return $this->prefName;
+        return $this->name;
     }
 
     /**

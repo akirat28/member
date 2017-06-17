@@ -24,9 +24,9 @@ class Area
     /**
      * @var string
      *
-     * @ORM\Column(name="area_name", type="string", length=128, nullable=true)
+     * @ORM\Column(name="name", type="string", length=128, nullable=true)
      */
-    private $areaName;
+    private $name;
 
 
 
@@ -41,26 +41,26 @@ class Area
     }
 
     /**
-     * Set areaName
+     * Set name
      *
-     * @param string $areaName
+     * @param string $name
      *
      * @return Area
      */
-    public function setAreaName($areaName)
+    public function setName($name)
     {
-        $this->areaName = $areaName;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get areaName
+     * Get name
      *
      * @return string
      */
-    public function getAreaName()
+    public function getName()
     {
-        return $this->areaName;
+        return $this->name;
     }
 }

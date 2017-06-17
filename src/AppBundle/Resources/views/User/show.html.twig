@@ -105,8 +105,8 @@
                             <tr>
                                 <td>住所</td>
                                 <td>
-                                    {% if user.pref.area.areaName is defined %}エリア：{{ user.pref.area.areaName }}地方<br>{% endif %}
-                                    {% if user.pref.prefName is defined  %}都道府県：{{ user.pref.prefName }}{% endif %}
+                                    {% if user.prefecture.area.name is defined %}エリア：{{ user.prefecture.area.name }}地方<br>{% endif %}
+                                    {% if user.prefecture.name is defined  %}都道府県：{{ user.prefecture.name }}{% endif %}
                                 </td>
                             </tr>
 

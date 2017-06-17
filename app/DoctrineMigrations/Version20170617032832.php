@@ -19,7 +19,7 @@ class Version20170617032832 extends AbstractMigration
 DROP TABLE IF EXISTS `area`;
 create table `area`(
 	`id` int(10) unsigned auto_increment,
-	`area_name` varchar(128) null,
+	`name` varchar(128) null,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SQL;

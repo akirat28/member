@@ -29,57 +29,26 @@ class User extends BaseUser
     /************* 追加項目 *********************************************/
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="pref_id", type="integer", nullable=true)
-     */
-    private $prefId;
-
-    /**
-     * Set prefId
-     *
-     * @param string $prefId
-     *
-     * @return Prefecture
-     */
-    public function setPrefId($prefId)
-    {
-        $this->prefId = $prefId;
-
-        return $this;
-    }
-
-    /**
-     * Get prefName
-     *
-     * @return string
-     */
-    public function getPrefId()
-    {
-        return $this->prefId;
-    }
-
-    /**
      * @var \Pref
      *
      * @ORM\ManyToOne(targetEntity="Prefecture")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="pref_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="prefecture_id", referencedColumnName="id")
      * })
      */
-    private $pref;
+    private $prefecture;
 
 
     /**
      * Set Pref
      *
-     * @param \AppBundle\Entity\Prefecture $pref
+     * @param \AppBundle\Entity\Prefecture $prefecture
      *
      * @return Prefecture
      */
-    public function setPref(\AppBundle\Entity\Prefecture $pref = null)
+    public function setPrefecture(\AppBundle\Entity\Prefecture $prefecture = null)
     {
-        $this->pref = $pref;
+        $this->prefecture = $prefecture;
 
         return $this;
     }
@@ -89,9 +58,9 @@ class User extends BaseUser
      *
      * @return \AppBundle\Entity\Prefecture
      */
-    public function getPref()
+    public function getPrefecture()
     {
-        return $this->pref;
+        return $this->prefecture;
     }
 
 

@@ -31,6 +31,7 @@ CREATE TABLE `user` (
   `confirmation_token` varchar(180) DEFAULT NULL,
   `password_requested_at` datetime DEFAULT NULL,
   `roles` longtext NOT NULL,
+  `prefecture_id` int(10) unsigned,
   PRIMARY KEY (`id`),
   UNIQUE KEY (`username_canonical`),
   UNIQUE KEY (`email_canonical`),

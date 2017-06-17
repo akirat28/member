@@ -27,3 +27,19 @@ services:
         arguments:
           - "@doctrine.orm.entity_manager"
           - "@service_container"
+          - "@app_prefecture.service"
+          - "@app_area.service"
+
+    # Prefecture Service
+    app_prefecture.service:
+        class: AppBundle\Services\PrefectureService
+        arguments:
+          - "@doctrine.orm.entity_manager"
+          - "@service_container"
+
+    # Area Service
+    app_area.service:
+        class: AppBundle\Services\AreaService
+        arguments:
+          - "@doctrine.orm.entity_manager"
+          - "@service_container"

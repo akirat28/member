@@ -27,6 +27,15 @@ class UserService
      */
     protected $container;
 
+    /**
+     * @var Prefecture
+     */
+    protected $prefecture;
+
+    /**
+     * @var Area
+     */
+    protected $area;
 
 
     /**
@@ -35,10 +44,12 @@ class UserService
      * @param $entityManager
      * @param $container
      */
-    public function __construct($entityManager, $container)
+    public function __construct($entityManager, $container, $prefecture, $area)
     {
         $this->em = $entityManager;
         $this->container = $container;
+        $this->prefecture = $prefecture;
+        $this->area = $area;
     }
 
     /**
@@ -124,7 +135,10 @@ class UserService
             $user = $this->em->getRepository('AppBundle:User')->find($id);
             $user->setUsername($params['username']);
             $user->setEmail($params['email']);
-            $user->setPrefId($params['prefId']);
+
+            $pref = $this->prefecture->getPrefecture($params['prefecture']);
+            $user->setPrefecture($pref);
+
             if($params['enabled'] == "1") {
                 $user->setEnabled(true);
             }else{

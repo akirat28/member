@@ -19,7 +19,7 @@ class Version20170617032237 extends AbstractMigration
 DROP TABLE IF EXISTS `prefecture`;
 create table `prefecture`(
   `id` int(10) unsigned auto_increment,
-  `pref_name` varchar(128) null,
+  `name` varchar(128) null,
   `area_id` int(10) unsigned null,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
