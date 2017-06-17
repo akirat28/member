@@ -78,6 +78,20 @@ class UserType extends AbstractType {
                     ]
                 ]
             )
+            ->add('prefId', EntityType::class,
+                [
+                    'label' => '都道府県',
+                    'class' => 'AppBundle:Prefecture',
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('p')->orderBy('p.id', 'ASC');
+                    },
+                    'choice_label' => 'prefName',
+                    'attr' => [
+                        'class' => 'form-control',
+                    ],
+                    'disabled' => false
+                ]
+            )
         ;
     }
 

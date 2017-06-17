@@ -124,6 +124,7 @@ class UserService
             $user = $this->em->getRepository('AppBundle:User')->find($id);
             $user->setUsername($params['username']);
             $user->setEmail($params['email']);
+            $user->setPrefId($params['prefId']);
             if($params['enabled'] == "1") {
                 $user->setEnabled(true);
             }else{

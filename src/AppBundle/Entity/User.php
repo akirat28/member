@@ -21,11 +21,43 @@ class User extends BaseUser
      */
     protected $id;
 
-
-    /************* 追加項目 *********************************************/
-
     public function __construct()
     {
         parent::__construct();
     }
+
+    /************* 追加項目 *********************************************/
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pref_id", type="integer", nullable=true)
+     */
+    private $prefId;
+
+    /**
+     * Set prefId
+     *
+     * @param string $prefId
+     *
+     * @return Prefecture
+     */
+    public function setPrefId($prefId)
+    {
+        $this->prefId = $prefId;
+
+        return $this;
+    }
+
+    /**
+     * Get prefName
+     *
+     * @return string
+     */
+    public function getPrefId()
+    {
+        return $this->prefId;
+    }
+
+
 }
