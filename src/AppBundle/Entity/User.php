@@ -59,5 +59,41 @@ class User extends BaseUser
         return $this->prefId;
     }
 
+    /**
+     * @var \Pref
+     *
+     * @ORM\ManyToOne(targetEntity="Prefecture")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="pref_id", referencedColumnName="id")
+     * })
+     */
+    private $pref;
+
+
+    /**
+     * Set Pref
+     *
+     * @param \AppBundle\Entity\Prefecture $pref
+     *
+     * @return Prefecture
+     */
+    public function setPref(\AppBundle\Entity\Prefecture $pref = null)
+    {
+        $this->pref = $pref;
+
+        return $this;
+    }
+
+    /**
+     * Get area
+     *
+     * @return \AppBundle\Entity\Prefecture
+     */
+    public function getPref()
+    {
+        return $this->pref;
+    }
+
+
 
 }
