@@ -101,6 +101,15 @@
                                     {% endif %}
                                 </td>
                             </tr>
+
+                            <tr>
+                                <td>住所</td>
+                                <td>
+                                    {% if user.pref.area.areaName is defined %}エリア：{{ user.pref.area.areaName }}地方<br>{% endif %}
+                                    {% if user.pref.prefName is defined  %}都道府県：{{ user.pref.prefName }}{% endif %}
+                                </td>
+                            </tr>
+
                             <tr>
                                 <td>保有権限</td>
                                 <td>
@@ -110,13 +119,6 @@
                                 </td>
                             </tr>
 
-                            <tr>
-                                <td>住所</td>
-                                <td>
-                                    {{ user.pref.prefName }}
-                                    {{ user.pref.area.areaName }}
-                                </td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
