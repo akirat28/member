@@ -1,33 +1,38 @@
-{# テンプレート継承 #}
-{% extends 'AppBundle::backend_base.html.twig' %}
-
-{# ページラベル #}
-{% block title %}ログイン{% endblock %}
-
-{# コンテンツヘッダー タイトルとパンくず #}
-{% block content_title %}
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-            パスワードの変更
-            <small>change password</small>
-        </h1>
-    </section>
-{% endblock %}
-
-{% block navigation %}
-{% endblock %}
-
-{# メインコンテンツ #}
-{% block content %}
-<section class="content">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="box box-info box-header with-border">
-                メールを送信しました。メールに記載された確認 URL にアクセスして、アカウントを有効化してください。<br >
-            </div>
-        </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin | Log in</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="{{ asset('bundles/app/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{{ asset('bundles/app/dist/css/AdminLTE.css') }}">
+    <link href="{{ asset('bundles/app/css/style.css') }}" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    <div class="login-logo">
+        <a href="{{ path("app_default_index") }}"><b>Member</b>Admin</a>
     </div>
-</section>
+    <!-- /.login-logo -->
 
-{% endblock %}
+    <div class="register-box-body">
+        <p class="login-box-msg">
+            メールを送信しました。メールに記載された確認 URL にアクセスして、アカウントを有効化してください。<br >
+        </p>
+       <a href="{{ path('fos_user_security_login') }}" class="text-center">ログインはこちら</a>
+    </div>
+    <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+
+<script src="{{ asset('bundles/app/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+<script src="{{ asset('bundles/app/bootstrap/js/bootstrap.min.js') }}"></script>
+</body>
+</html>
